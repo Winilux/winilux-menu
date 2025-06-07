@@ -179,180 +179,292 @@
 </html><!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <title>Winilux Pedido Web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Menú Winilux</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
     body {
-      background: linear-gradient(135deg, #18181b 60%, #ffaa32 100%);
+      background: url('https://i.imgur.com/TlDJmuR.jpg') center/cover no-repeat, #1c1c1c;
       min-height: 100vh;
       color: #fff;
       font-family: 'Bebas Neue', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      margin:0; padding:0;
     }
-    .container {
-      max-width: 430px;
-      margin: 30px auto 40px;
-      padding: 30px 16px 10px 16px;
-      background: rgba(25, 25, 28, 0.97);
-      border-radius: 18px;
-      box-shadow: 0 7px 30px 0 #ffaa321f, 0 1.5px 16px 0 #000c  ;
+    .menu {
+      max-width:420px; margin:35px auto 18px; 
+      background:rgba(22,22,22,0.92);
+      border-radius:18px;
+      padding:25px 14px 14px 14px;
+      box-shadow: 0 8px 44px #ffaa3225, 0 3px 12px #000c;
     }
     .logo {
-      display: block;
-      margin: 0 auto 12px;
-      width: 88px;
-      border-radius: 50%;
-      border: 3px solid #ffaa32;
-      box-shadow: 0 0 12px #ffaa3277;
+      display:block;
+      margin:0 auto 12px;
+      width:74px;
+      border-radius:50%;
+      border:2px solid #ffaa32;
+      background:#222;
     }
-    h1 {
-      font-size: 2.7rem;
-      letter-spacing: 2.5px;
-      margin-bottom: 2px;
-      color: #ffaa32;
-      text-align: center;
-      font-family: 'Bebas Neue', Arial Black, sans-serif;
-      line-height: 1.05;
-      text-shadow: 0 2px 10px #18181b, 0 0px 10px #ffaa3250;
-    }
-    .sub {
-      text-align: center;
-      font-size: 1.05rem;
-      color: #ffc967;
-      margin-bottom: 10px;
-      font-weight: 500;
-      letter-spacing: 1px;
-    }
-    .section {
-      margin: 28px 0 0 0;
-    }
+    h1 { color:#ffaa32; text-align:center; margin: 0 0 13px; font-size:2.1rem; letter-spacing:1.5px; }
+    .sub {text-align:center; font-size:1.05rem; color:#ffc967; margin-bottom:12px; font-weight: 500; letter-spacing: 1px;}
     .section-title {
-      font-size: 1.44rem;
       color: #ffaa32;
-      letter-spacing: 1.5px;
-      border-left: 7px solid #ffaa32;
-      padding-left: 12px;
-      margin-bottom: 10px;
-      font-family: inherit;
-      text-shadow: 0 2px 8px #0009;
+      margin-top: 20px; margin-bottom: 8px; font-size:1.18rem; border-left:6px solid #ffaa32; padding-left:12px;
+      text-shadow: 0 2px 10px #0009;
+      letter-spacing:1px;
     }
-    .menu-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .card {
-      background: #232328d7;
-      border-radius: 12px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 16px 10px 12px;
-      font-size: 1.15rem;
-      box-shadow: 0 2px 10px #0004;
-      border-left: 5px solid #ffaa32a0;
-      transition: background .3s;
-    }
-    .card:hover {
-      background: #35353c;
-      border-left: 5px solid #ffaa32;
-      box-shadow: 0 4px 14px #ffaa3233, 0 2px 14px #000a;
-    }
-    .item-name {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-    }
-    .item-price {
-      font-weight: 900;
-      font-size: 1.13rem;
-      color: #ffaa32;
-      text-shadow: 0 1px 4px #0009;
-    }
-    footer {
-      text-align: center;
-      margin-top: 24px;
-      color: #ffc967;
-      font-size: 1.02rem;
-      font-family: 'Bebas Neue', Arial, sans-serif;
-      opacity: .85;
-    }
-    .footer-quesito {
-      width: 46px;
-      margin: 8px auto 0;
-      filter: drop-shadow(0 0 9px #ffaa3270);
-    }
+    .item {margin-bottom: 8px; display: flex; align-items: center;}
+    .item label {flex:1; cursor:pointer; font-size:1.08rem;}
+    .personaliza {font-size: .98em; margin-left: 10px; border-radius:6px; border:none; padding:2px 3px;}
+    #pedido {width:100%; background:#ffaa32; color:#232328; border:none; border-radius:8px; padding:11px; font-size:1.16em; font-weight:bold; cursor:pointer; margin-top:22px; box-shadow: 0 4px 12px #0003;}
+    #pedido:hover { background:#ffc967; color:#19191b;}
+    .footer-quesito { width:40px; display:block; margin:22px auto 6px; filter: drop-shadow(0 0 10px #ffaa3290);}
+    footer {text-align: center; color:#ffc967; font-size:.99rem; opacity:.92;}
     @media (max-width: 480px) {
-      .container { max-width: 97vw; padding: 14px 1vw 4vw; }
-      h1 { font-size: 2.1rem; }
-      .section-title { font-size: 1.05rem; }
-      .card { font-size: 1.03rem; padding: 9px 8px 9px 9px;}
+      .menu {max-width: 98vw; padding:12px 2vw 5vw;}
+      h1 { font-size: 1.35rem;}
+      .section-title { font-size:.96rem; }
+      .item label {font-size:.99rem;}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Yellow_cheese_icon.png" alt="Quesito" class="logo"/>
+  <div class="menu">
+    <img src="https://i.imgur.com/FFyebgJ.png" alt="Quesito" class="logo"/>
     <h1>WINILUX</h1>
     <div class="sub">HAMBURGUESAS, BURRITOS Y MÁS</div>
-    
-    <div class="section">
+    <form id="formMenu">
+      <!-- BURGER ZONA -->
       <div class="section-title">🍔 BURGER ZONA</div>
-      <ul class="menu-list">
-        <li class="card"><span class="item-name">Hamburguesa Clásica 🧀</span> <span class="item-price">$50</span></li>
-        <li class="card"><span class="item-name">Hamburguesa BBQ 🍖</span> <span class="item-price">$70</span></li>
-        <li class="card"><span class="item-name">Hamburguesa Hawaiana 🍍</span> <span class="item-price">$75</span></li>
-        <li class="card"><span class="item-name">Hamburguesa Ranchera 🌶️</span> <span class="item-price">$80</span></li>
-        <li class="card"><span class="item-name">Hamburguesa Doble 🖐🏻</span> <span class="item-price">$95</span></li>
-        <li class="card"><span class="item-name">Hamburguesa Monster 👹</span> <span class="item-price">$150</span></li>
-      </ul>
-    </div>
-    <div class="section">
+      <div class="item">
+        <input type="checkbox" id="clasica" value="Hamburguesa Clásica">
+        <label for="clasica">Hamburguesa Clásica 🧀</label>
+        <select class="personaliza" name="personaliza_clasica">
+          <option>Con todo</option>
+          <option>Sin jitomate</option>
+          <option>Sin cebolla</option>
+          <option>Sin mayonesa</option>
+          <option>Sin verdura</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="bbq" value="Hamburguesa BBQ">
+        <label for="bbq">Hamburguesa BBQ 🍖</label>
+        <select class="personaliza" name="personaliza_bbq">
+          <option>Con todo</option>
+          <option>Sin tocino</option>
+          <option>Sin BBQ</option>
+          <option>Sin cebolla</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="hawaiana" value="Hamburguesa Hawaiana">
+        <label for="hawaiana">Hamburguesa Hawaiana 🍍</label>
+        <select class="personaliza" name="personaliza_hawaiana">
+          <option>Con todo</option>
+          <option>Sin piña</option>
+          <option>Sin jamón</option>
+          <option>Sin cebolla</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="ranchera" value="Hamburguesa Ranchera">
+        <label for="ranchera">Hamburguesa Ranchera 🌶️</label>
+        <select class="personaliza" name="personaliza_ranchera">
+          <option>Con todo</option>
+          <option>Sin jalapeño</option>
+          <option>Sin tocino</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="doble" value="Hamburguesa Doble">
+        <label for="doble">Hamburguesa Doble 🖐🏻</label>
+        <select class="personaliza" name="personaliza_doble">
+          <option>Con todo</option>
+          <option>Sin tocino</option>
+          <option>Sin queso extra</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="monster" value="Hamburguesa Monster">
+        <label for="monster">Hamburguesa Monster 👹</label>
+        <select class="personaliza" name="personaliza_monster">
+          <option>Con todo</option>
+          <option>Sin tocino</option>
+          <option>Sin queso</option>
+          <option>Sin salchicha</option>
+        </select>
+      </div>
+      <!-- ANTOJO STREET -->
       <div class="section-title">🌭 ANTOJO STREET</div>
-      <ul class="menu-list">
-        <li class="card"><span class="item-name">Torta con Queso 🌭</span> <span class="item-price">$45</span></li>
-        <li class="card"><span class="item-name">Gringa con Queso 🌙</span> <span class="item-price">$55</span></li>
-        <li class="card"><span class="item-name">Orden de 3 Hotdogs 🌭</span> <span class="item-price">$65</span></li>
-        <li class="card"><span class="item-name">Orden de 3 Volcanes 🌋</span> <span class="item-price">$65</span></li>
-        <li class="card"><span class="item-name">Sandwinch Club 🥪</span> <span class="item-price">$80</span></li>
-      </ul>
-    </div>
-    <div class="section">
+      <div class="item">
+        <input type="checkbox" id="torta" value="Torta con Queso">
+        <label for="torta">Torta con Queso 🌭</label>
+        <select class="personaliza" name="personaliza_torta">
+          <option>Con todo</option>
+          <option>Sin jitomate</option>
+          <option>Sin cebolla</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="gringa" value="Gringa con Queso">
+        <label for="gringa">Gringa con Queso 🌙</label>
+        <select class="personaliza" name="personaliza_gringa">
+          <option>Con todo</option>
+          <option>Sin queso</option>
+          <option>Sin cebolla</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="hotdogs" value="Orden de 3 Hotdogs">
+        <label for="hotdogs">Orden de 3 Hotdogs 🌭</label>
+        <select class="personaliza" name="personaliza_hotdogs">
+          <option>Con todo</option>
+          <option>Sin mayonesa</option>
+          <option>Sin tocino</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="volcanes" value="Orden de 3 Volcanes">
+        <label for="volcanes">Orden de 3 Volcanes 🌋</label>
+        <select class="personaliza" name="personaliza_volcanes">
+          <option>Con todo</option>
+          <option>Sin queso</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="sandwinch" value="Sandwinch Club">
+        <label for="sandwinch">Sandwinch Club 🥪</label>
+        <select class="personaliza" name="personaliza_sandwinch">
+          <option>Con todo</option>
+          <option>Sin jamón</option>
+          <option>Sin mayonesa</option>
+        </select>
+      </div>
+      <!-- BURRITOMANÍA -->
       <div class="section-title">🌮 BURRITOMANÍA</div>
-      <ul class="menu-list">
-        <li class="card"><span class="item-name">Burrito de Bistec 🥩</span> <span class="item-price">$70</span></li>
-        <li class="card"><span class="item-name">Burrito de Arrachera 🍖</span> <span class="item-price">$80</span></li>
-        <li class="card"><span class="item-name">Burrito Campechano 🐷</span> <span class="item-price">$85</span></li>
-        <li class="card"><span class="item-name">Burrito de Pastor 🌮</span> <span class="item-price">$80</span></li>
-      </ul>
-    </div>
-    <div class="section">
+      <div class="item">
+        <input type="checkbox" id="bistec" value="Burrito de Bistec">
+        <label for="bistec">Burrito de Bistec 🥩</label>
+        <select class="personaliza" name="personaliza_bistec">
+          <option>Con todo</option>
+          <option>Sin frijoles</option>
+          <option>Sin cebolla</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="arrachera" value="Burrito de Arrachera">
+        <label for="arrachera">Burrito de Arrachera 🍖</label>
+        <select class="personaliza" name="personaliza_arrachera">
+          <option>Con todo</option>
+          <option>Sin frijoles</option>
+          <option>Sin aguacate</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="campechano" value="Burrito Campechano">
+        <label for="campechano">Burrito Campechano 🐷</label>
+        <select class="personaliza" name="personaliza_campechano">
+          <option>Con todo</option>
+          <option>Sin frijoles</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="pastor" value="Burrito de Pastor">
+        <label for="pastor">Burrito de Pastor 🌮</label>
+        <select class="personaliza" name="personaliza_pastor">
+          <option>Con todo</option>
+          <option>Sin piña</option>
+        </select>
+      </div>
+      <!-- EXTRAS -->
       <div class="section-title">🍟 EXTRAS</div>
-      <ul class="menu-list">
-        <li class="card"><span class="item-name">Orden de Papas 😊</span> <span class="item-price">$40</span></li>
-        <li class="card"><span class="item-name">Orden de Salchipulpos 🐙</span> <span class="item-price">$45</span></li>
-        <li class="card"><span class="item-name">Orden de Salchipapas 🍟</span> <span class="item-price">$55</span></li>
-      </ul>
-    </div>
-    <div class="section">
+      <div class="item">
+        <input type="checkbox" id="papas" value="Orden de Papas">
+        <label for="papas">Orden de Papas 😊</label>
+        <select class="personaliza" name="personaliza_papas">
+          <option>Normal</option>
+          <option>Sin sal</option>
+          <option>Extra salsa</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="salchipulpos" value="Orden de Salchipulpos">
+        <label for="salchipulpos">Orden de Salchipulpos 🐙</label>
+        <select class="personaliza" name="personaliza_salchipulpos">
+          <option>Normal</option>
+          <option>Sin salsa</option>
+          <option>Extra salsa</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="salchipapas" value="Orden de Salchipapas">
+        <label for="salchipapas">Orden de Salchipapas 🍟</label>
+        <select class="personaliza" name="personaliza_salchipapas">
+          <option>Normal</option>
+          <option>Sin salsa</option>
+          <option>Extra salsa</option>
+        </select>
+      </div>
+      <!-- BEBIDAS -->
       <div class="section-title">🥤 BEBIDAS</div>
-      <ul class="menu-list">
-        <li class="card"><span class="item-name">Refrescos</span> <span class="item-price">$25</span></li>
-        <li class="card"><span class="item-name">Agua de sabor 1 lt</span> <span class="item-price">$40</span></li>
-        <li class="card"><span class="item-name">Cervezas</span> <span class="item-price">$55</span></li>
-      </ul>
-    </div>
+      <div class="item">
+        <input type="checkbox" id="refrescos" value="Refrescos">
+        <label for="refrescos">Refrescos</label>
+        <select class="personaliza" name="personaliza_refrescos">
+          <option>Normal</option>
+          <option>Light</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="agua" value="Agua de sabor 1 lt">
+        <label for="agua">Agua de sabor 1 lt</label>
+        <select class="personaliza" name="personaliza_agua">
+          <option>Horchata</option>
+          <option>Jamaica</option>
+          <option>Tamarindo</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="cervezas" value="Cervezas">
+        <label for="cervezas">Cervezas</label>
+        <select class="personaliza" name="personaliza_cervezas">
+          <option>Normal</option>
+          <option>Sin limón</option>
+        </select>
+      </div>
+      <button type="button" id="pedido">Enviar pedido por WhatsApp</button>
+    </form>
     <footer>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Yellow_cheese_icon.png" alt="Quesito" class="footer-quesito"/><br>
+      <img src="https://i.imgur.com/FFyebgJ.png" alt="Quesito" class="footer-quesito"/>
       Esto es lo que yo también me comería. Esto es Winilux.
     </footer>
   </div>
+  <script>
+    document.getElementById("pedido").onclick = function() {
+      var form = document.getElementById("formMenu");
+      var items = form.querySelectorAll("input[type=checkbox]");
+      var msg = "¡Hola! Quiero pedir en Winilux:%0A";
+      let algoSeleccionado = false;
+      items.forEach(function(item){
+        if(item.checked) {
+          algoSeleccionado = true;
+          let sel = form.querySelector('[name="personaliza_'+item.id+'"]');
+          msg += "- " + item.value + " (" + sel.value + ")%0A";
+        }
+      });
+      if(!algoSeleccionado){
+        alert("Selecciona al menos un producto 😅");
+        return;
+      }
+      var tel = "525560442451"; // Cambia este número por el de tu WhatsApp, con 52 al inicio y sin espacios
+      var url = "https://wa.me/"+tel+"?text="+msg;
+      window.open(url, "_blank");
+    }
+  </script>
 </body>
 </html>
+
 
