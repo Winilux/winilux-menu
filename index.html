@@ -1,158 +1,270 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Winilux Pedido Interactivo</title>
+  <title>Menú Winilux Interactivo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- Tipografía parecida al menú -->
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Bebas+Neue:wght@400&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       background: linear-gradient(#d7be8a 0%, #fff8e1 85%);
+      font-family: 'Bebas Neue', Arial, sans-serif;
       min-height: 100vh;
-      font-family: 'Bebas Neue', 'Luckiest Guy', Arial, sans-serif;
-      color: #3b2502;
-      box-sizing: border-box;
+      color: #32230a;
     }
-    .fondo-madera {
-      background: repeating-linear-gradient(120deg, #efcf98 0 36px, #e5b665 36px 72px), linear-gradient(#f7e5bb 0%, #d4b071 100%);
-      min-height: 100vh;
-      padding-bottom: 45px;
+    .header {
+      background: #fff9e3;
+      padding: 36px 8px 12px 8px;
+      border-radius: 0 0 36px 36px;
+      box-shadow: 0 5px 30px #aa8b3440, 0 2px 14px #0002;
+      text-align: center;
+      position: sticky; top:0; z-index:30;
+    }
+    .logo-quesito {
+      width: 76px;
+      height: 76px;
+      background: #fceab6;
+      border-radius: 50%;
+      margin-bottom: 5px;
+      border: 3px solid #ffaa32;
+      display: inline-block;
+      background-image: url('https://i.imgur.com/FFyebgJ.png'); /* Temporal, pon tu Quesito después */
+      background-size: 70px 70px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .titulo {
+      font-family: 'Luckiest Guy', 'Bebas Neue', Arial, sans-serif;
+      font-size: 2.1rem;
+      color: #ffaa32;
+      margin: 0 0 7px 0;
+      letter-spacing: 2.5px;
+      text-shadow: 0 2px 18px #ffd177aa, 0 1px 10px #cf7e0966;
+      font-weight: bold;
     }
     .eslogan {
-      background: #ffaa32;
-      color: #fff;
-      font-family: 'Luckiest Guy', 'Bebas Neue', Arial, sans-serif;
-      font-size: 1.3rem;
-      margin: 0 auto 16px auto;
-      padding: 12px 7vw;
-      border-radius: 0 0 24px 24px;
-      box-shadow: 0 4px 18px #ffaa3222, 0 1.5px 12px #000c;
-      letter-spacing: 1.2px;
-      text-align: center;
-      max-width: 530px;
-      text-shadow: 0 1px 6px #f6860b, 0 0px 14px #19191966;
-      position: sticky;
-      top: 0; z-index: 20;
+      font-size: 1.1rem;
+      font-family: 'Bebas Neue', Arial, sans-serif;
+      color: #a45c04;
+      background: #ffe5a2;
+      padding: 8px 20px 7px 20px;
+      border-radius: 15px;
+      margin: 0 auto 10px auto;
+      display: inline-block;
+      box-shadow: 0 1.5px 7px #ffae3284;
     }
-    .menu-container {
-      max-width: 550px;
-      margin: 24px auto 18px;
-      background: rgba(245, 225, 150, 0.80);
-      border-radius: 24px;
-      padding: 20px 12px 12px 12px;
+    .menu-main {
+      max-width: 570px;
+      margin: 24px auto 24px auto;
+      background: rgba(245, 225, 150, 0.85);
+      border-radius: 28px;
+      padding: 22px 10px 22px 10px;
       box-shadow: 0 5px 30px #aa8b3440, 0 2px 14px #0003;
       position: relative;
     }
-    .seccion {
-      margin-bottom: 22px;
-      padding: 16px 4vw 12px 4vw;
-      background: #ffe7ad;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px #fff5, 0 2px 8px #b68c2d22;
-      border: 3px dashed #ffb23e80;
-      position: relative;
+    .seccion-acordeon {
+      margin-bottom: 19px;
     }
-    .seccion-title {
-      font-family: 'Luckiest Guy', 'Bebas Neue', Arial, sans-serif;
+    .acordeon-btn {
+      width: 100%;
+      background: linear-gradient(90deg,#ffb42d 20%, #ffd18d 100%);
+      color: #fff;
       font-size: 1.34rem;
-      color: #ffa20b;
-      text-shadow: 0 2px 10px #fff8, 0 1px 10px #db860090;
-      margin-bottom: 2px;
-      margin-top: 0;
+      font-family: 'Luckiest Guy', Arial, sans-serif;
+      padding: 17px 0 15px 0;
+      border: none;
+      border-radius: 17px;
+      margin-bottom: 0;
       letter-spacing: 2px;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-    .quesito-space {
-      width: 44px; min-height: 40px; margin-left: 8px; /* Para tus íconos Quesito */
-      display: inline-block; vertical-align: middle;
-      background: none;
-    }
-    .item-panel {
-      background: #fff7e5;
-      border-radius: 14px;
-      margin: 9px 0 7px 0;
-      box-shadow: 0 2px 7px #bfb57360;
-      display: flex;
-      flex-direction: column;
-      padding: 10px 11px 9px 11px;
-      border-left: 6px solid #ffa20b70;
-    }
-    .item-top {
+      box-shadow: 0 2px 13px #cf7e0933;
+      margin-top: 0;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      transition: box-shadow .22s, background .18s;
+      text-shadow: 0 2px 8px #d06f09a0, 0 1px 12px #fff8;
+      border-bottom: 4px solid #d97706;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
+      gap: 6px;
     }
-    .item-nombre {
-      font-family: 'Bebas Neue', Arial, sans-serif;
-      font-size: 1.12rem;
-      font-weight: 700;
-      letter-spacing: .6px;
-      color: #a45c04;
-      flex: 1 0 110px;
+    .acordeon-btn.open {
+      background: linear-gradient(90deg, #ffaa32 0%, #ffe19c 100%);
+      box-shadow: 0 8px 22px #ffaa3270;
+      color: #2e1500;
     }
-    .item-cantidad {
-      font-size: 1.06rem;
-      border-radius: 7px;
-      border: 1.2px solid #ffca6e;
-      width: 49px;
-      text-align: center;
-      padding: 2px 0;
-      background: #f3cd8c;
-      color: #a2670d;
-      font-family: inherit;
-      font-weight: bold;
+    .quesito-ico {
+      width: 38px; height: 38px; background-image: url('https://i.imgur.com/FFyebgJ.png'); background-size:contain;background-repeat:no-repeat;display:inline-block;vertical-align:middle;margin-left:7px;
     }
-    .perso-label {
-      font-size: 1.00rem;
-      font-family: 'Bebas Neue', Arial, sans-serif;
-      margin-right: 14px;
-      color: #bf8211;
-      vertical-align: middle;
+    .arrow {
+      font-size: 1.25rem;
+      margin-left: 12px;
+      transition: transform .32s cubic-bezier(.6,-0.28,.74,.05);
+      filter: drop-shadow(0 1.5px 8px #ffd7b4d8);
     }
-    .perso-checkbox {
-      accent-color: #ffaa32;
-      margin-right: 6px;
-      transform: scale(1.1);
+    .acordeon-btn.open .arrow {
+      transform: rotate(90deg) scale(1.3);
     }
-    .perso-block {
-      margin: 6px 0 0 2px;
+    .productos-seccion {
+      display: none;
+      animation: fadeIn .5s;
+      padding: 8px 2vw 1px 2vw;
+    }
+    .productos-seccion.open {
+      display: block;
+      animation: despliegue .6s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scaleY(.96);}
+      to   { opacity: 1; transform: scaleY(1);}
+    }
+    @keyframes despliegue {
+      from { opacity:0; transform: scaleY(.8);}
+      to   { opacity:1; transform: scaleY(1);}
+    }
+    .tarjeta-producto {
+      background: #fff7e5;
+      border-radius: 13px;
+      box-shadow: 0 2px 11px #bfb57380;
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px 24px;
+      align-items: center;
+      margin: 13px 0 13px 0;
+      padding: 7px 7px 7px 12px;
+      cursor: pointer;
+      border-left: 7px solid #ffa20b99;
+      transition: box-shadow .19s, background .14s;
+      position: relative;
     }
-    .agregar-btn {
+    .tarjeta-producto:hover {
+      box-shadow: 0 4px 14px #ffa20b55;
+      background: #fff5ca;
+    }
+    .prod-nombre {
+      flex:1;
+      font-size: 1.10rem;
+      font-family: 'Bebas Neue', Arial, sans-serif;
+      font-weight: bold;
+      color: #a45c04;
+      letter-spacing: 1px;
+    }
+    .prod-ico {
+      width: 38px; height: 38px; background-image: url('https://i.imgur.com/FFyebgJ.png'); background-size:contain;background-repeat:no-repeat;margin-right:11px;
+    }
+    .agregado-popup {
+      position: fixed; bottom: 56px; left: 50%; transform: translateX(-50%);
       background: #ffaa32;
       color: #fff;
-      font-size: 1.07rem;
       font-family: 'Luckiest Guy', Arial, sans-serif;
-      border: none;
-      border-radius: 8px;
-      padding: 7px 21px;
-      font-weight: 700;
-      margin: 7px 0 0 0;
-      cursor: pointer;
-      transition: background .17s;
-      box-shadow: 0 1.5px 8px #ffcd3270;
-      letter-spacing: .8px;
+      font-size: 1.15rem;
+      padding: 12px 28px;
+      border-radius: 13px;
+      box-shadow: 0 2px 16px #ffaa3266;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .31s;
     }
-    .agregar-btn:hover {
-      background: #ff6a1b;
+    .agregado-popup.active { opacity: 1; pointer-events: auto;}
+    .modal-bg {
+      position: fixed; top:0; left:0; width:100vw; height:100vh;
+      background:rgba(0,0,0,.37); z-index: 500;
+      display: none;
     }
-    .carrito {
-      background: #ffd07d;
-      border-radius: 16px 16px 6px 6px;
-      margin: 18px 0 0 0;
-      box-shadow: 0 2px 11px #cba45d42;
-      padding: 14px 10px 6px 10px;
+    .modal-bg.open { display:block;}
+    .modal {
+      background: #fffbe6;
+      border-radius: 17px;
+      box-shadow: 0 8px 32px #ffaa3250;
+      position: fixed;
+      left: 50%; top: 48%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      min-width: 280px;
+      max-width: 95vw;
+      padding: 28px 18px 17px 18px;
       font-family: 'Bebas Neue', Arial, sans-serif;
+      display: none;
+      animation: modalOpen .33s;
+    }
+    .modal.open { display:block;}
+    @keyframes modalOpen {
+      from {opacity:.45; transform:translate(-50%,-42%) scale(.98);}
+      to {opacity:1; transform:translate(-50%,-50%) scale(1);}
+    }
+    .modal-titulo {
+      font-size: 1.15rem;
+      color: #ffaa32;
+      margin-bottom: 11px;
+      letter-spacing: 1.3px;
+      font-family: 'Luckiest Guy', Arial, sans-serif;
+      text-shadow:0 1.5px 8px #ffb63c84;
+    }
+    .modal-cantidad {
+      display: flex; align-items:center; gap:12px;
+      justify-content:center;
+      margin-bottom: 14px;
+    }
+    .modal-btn {
+      font-size: 1.28rem;
+      font-weight: bold;
+      width: 37px; height: 37px;
+      border-radius: 50%;
+      border: none;
+      background: #ffaa32;
+      color: #fff;
+      cursor: pointer;
+      transition: background .16s;
+      font-family: inherit;
+      box-shadow: 0 2px 10px #ffaa3268;
+    }
+    .modal-btn:hover { background: #ffc967; color:#3b2502;}
+    .modal-input {
+      width: 44px; text-align: center;
+      font-size: 1.22rem;
+      border: none; background: #fff2b0;
+      color: #ffaa32; font-weight: bold; border-radius: 8px;
+      font-family: inherit; padding: 2px 1px;
+    }
+    .modal-perso {
+      margin: 5px 0 14px 0;
+      display: flex; flex-wrap: wrap; gap: 10px 19px;
+      justify-content:center;
+    }
+    .modal-perso label { font-size: 1.01rem; color: #b1760f;}
+    .modal-perso input[type=checkbox] { accent-color: #ffaa32; margin-right:4px; transform:scale(1.1);}
+    .modal-agregar {
+      background: #25d366;
+      color: #fff;
+      font-size: 1.11rem;
+      border: none;
+      border-radius: 10px;
+      padding: 11px 27px;
+      font-family: 'Luckiest Guy', Arial, sans-serif;
+      font-weight: bold;
+      margin: 13px auto 0 auto;
+      display: block;
+      box-shadow: 0 2px 10px #1f4f3588;
+      cursor: pointer;
+      transition: background .18s;
+    }
+    .modal-agregar:hover { background:#079340; }
+    .carrito-fixed {
+      background: #ffd07d;
+      border-radius: 19px 19px 9px 9px;
+      margin: 26px auto 12px auto;
+      box-shadow: 0 2px 11px #cba45d42;
+      padding: 18px 12px 10px 12px;
+      font-family: 'Bebas Neue', Arial, sans-serif;
+      max-width: 570px;
+      position: sticky; bottom: 0; left: 0; right: 0;
+      z-index: 50;
+      transition: box-shadow .3s;
+    }
+    .carrito-flash {
+      box-shadow: 0 0 21px #25d366, 0 4px 22px #25d3664c, 0 2px 13px #ffd14d6a !important;
+      transition: box-shadow .21s;
     }
     .carrito-title {
       color: #b46b07;
@@ -217,206 +329,305 @@
     .whatsapp-btn:hover { background:#079340; }
     .footer-quesito { margin-top:30px; text-align:center;}
     .footer-text { color: #b46b07; font-size:.93rem; opacity:.88; margin-top:4px;}
-    @media (max-width:600px) {
-      .menu-container { max-width:98vw; padding: 2vw 0vw 10vw 0vw;}
-      .eslogan { font-size:1.09rem; padding:8px 2vw;}
-      .seccion { padding: 10px 1vw 9px 1vw;}
-      .seccion-title { font-size:1.05rem; }
-      .item-nombre { font-size:.97rem;}
-      .agregar-btn { font-size: .99rem;}
-      .carrito { padding: 10px 5px 3px 5px;}
+    @media (max-width:700px) {
+      .menu-main, .carrito-fixed {max-width:99vw;}
+    }
+    @media (max-width:480px) {
+      .header {padding:25px 4px 7px 4px;}
+      .titulo {font-size:1.23rem;}
+      .acordeon-btn {font-size:1.03rem; padding:10px 0 10px 0;}
     }
   </style>
 </head>
 <body>
-<div class="fondo-madera">
-  <div class="eslogan">
-    🍔 Familia, sabor y calle. Así, como debe ser 🍔
-  </div>
-  <div class="menu-container" id="menuWinilux">
+<div class="header">
+  <div class="logo-quesito"></div>
+  <div class="titulo">WINILUX</div>
+  <div class="eslogan">🍔 Familia, sabor y calle. Así, como debe ser 🍔</div>
+</div>
 
-    <!-- BURGER ZONA -->
-    <div class="seccion">
-      <div class="seccion-title">
-        BURGER ZONA
-        <div class="quesito-space" title="Pon aquí tu Quesito"></div>
-      </div>
-      <!-- Hamburguesas, personalización múltiple -->
-      <div class="item-panel">
-        <div class="item-top">
-          <span class="item-nombre">Hamburguesa Clásica 🧀</span>
-          <input type="number" min="1" max="9" value="1" class="item-cantidad" id="cant_clasica">
-          <button type="button" class="agregar-btn" onclick="agregarProducto('Hamburguesa Clásica', 'clasica')">Agregar</button>
-        </div>
-        <div class="perso-block" id="perso_clasica">
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="CON TODO!!!">CON TODO!!!</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CEBOLLA">SIN CEBOLLA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN JITOMATE">SIN JITOMATE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN LECHUGA">SIN LECHUGA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PICANTE">SIN PICANTE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PEPINILLOS">SIN PEPINILLOS</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CATSUP">SIN CATSUP</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN QUESO AMARILLO">SIN QUESO AMARILLO</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN MAYONESA">SIN MAYONESA</label>
-        </div>
-      </div>
-      <!-- Hamburguesa BBQ -->
-      <div class="item-panel">
-        <div class="item-top">
-          <span class="item-nombre">Hamburguesa BBQ 🍖</span>
-          <input type="number" min="1" max="9" value="1" class="item-cantidad" id="cant_bbq">
-          <button type="button" class="agregar-btn" onclick="agregarProducto('Hamburguesa BBQ', 'bbq')">Agregar</button>
-        </div>
-        <div class="perso-block" id="perso_bbq">
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="CON TODO!!!">CON TODO!!!</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CEBOLLA">SIN CEBOLLA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN JITOMATE">SIN JITOMATE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN LECHUGA">SIN LECHUGA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PICANTE">SIN PICANTE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PEPINILLOS">SIN PEPINILLOS</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CATSUP">SIN CATSUP</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN QUESO AMARILLO">SIN QUESO AMARILLO</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN MAYONESA">SIN MAYONESA</label>
-        </div>
-      </div>
-      <!-- Hamburguesa Hawaiana -->
-      <div class="item-panel">
-        <div class="item-top">
-          <span class="item-nombre">Hamburguesa Hawaiana 🍍</span>
-          <input type="number" min="1" max="9" value="1" class="item-cantidad" id="cant_hawaiana">
-          <button type="button" class="agregar-btn" onclick="agregarProducto('Hamburguesa Hawaiana', 'hawaiana')">Agregar</button>
-        </div>
-        <div class="perso-block" id="perso_hawaiana">
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="CON TODO!!!">CON TODO!!!</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CEBOLLA">SIN CEBOLLA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN JITOMATE">SIN JITOMATE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN LECHUGA">SIN LECHUGA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PICANTE">SIN PICANTE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PEPINILLOS">SIN PEPINILLOS</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CATSUP">SIN CATSUP</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN QUESO AMARILLO">SIN QUESO AMARILLO</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN MAYONESA">SIN MAYONESA</label>
-        </div>
-      </div>
-      <!-- Hamburguesa Ranchera -->
-      <div class="item-panel">
-        <div class="item-top">
-          <span class="item-nombre">Hamburguesa Ranchera 🌶️</span>
-          <input type="number" min="1" max="9" value="1" class="item-cantidad" id="cant_ranchera">
-          <button type="button" class="agregar-btn" onclick="agregarProducto('Hamburguesa Ranchera', 'ranchera')">Agregar</button>
-        </div>
-        <div class="perso-block" id="perso_ranchera">
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="CON TODO!!!">CON TODO!!!</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CEBOLLA">SIN CEBOLLA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN JITOMATE">SIN JITOMATE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN LECHUGA">SIN LECHUGA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PICANTE">SIN PICANTE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PEPINILLOS">SIN PEPINILLOS</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CATSUP">SIN CATSUP</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN QUESO AMARILLO">SIN QUESO AMARILLO</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN MAYONESA">SIN MAYONESA</label>
-        </div>
-      </div>
-      <!-- Hamburguesa Doble -->
-      <div class="item-panel">
-        <div class="item-top">
-          <span class="item-nombre">Hamburguesa Doble 🖐🏻</span>
-          <input type="number" min="1" max="9" value="1" class="item-cantidad" id="cant_doble">
-          <button type="button" class="agregar-btn" onclick="agregarProducto('Hamburguesa Doble', 'doble')">Agregar</button>
-        </div>
-        <div class="perso-block" id="perso_doble">
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="CON TODO!!!">CON TODO!!!</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CEBOLLA">SIN CEBOLLA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN JITOMATE">SIN JITOMATE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN LECHUGA">SIN LECHUGA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PICANTE">SIN PICANTE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PEPINILLOS">SIN PEPINILLOS</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CATSUP">SIN CATSUP</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN QUESO AMARILLO">SIN QUESO AMARILLO</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN MAYONESA">SIN MAYONESA</label>
-        </div>
-      </div>
-      <!-- Hamburguesa Monster -->
-      <div class="item-panel">
-        <div class="item-top">
-          <span class="item-nombre">Hamburguesa Monster 👹</span>
-          <input type="number" min="1" max="9" value="1" class="item-cantidad" id="cant_monster">
-          <button type="button" class="agregar-btn" onclick="agregarProducto('Hamburguesa Monster', 'monster')">Agregar</button>
-        </div>
-        <div class="perso-block" id="perso_monster">
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="CON TODO!!!">CON TODO!!!</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CEBOLLA">SIN CEBOLLA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN JITOMATE">SIN JITOMATE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN LECHUGA">SIN LECHUGA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PICANTE">SIN PICANTE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PEPINILLOS">SIN PEPINILLOS</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CATSUP">SIN CATSUP</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN QUESO AMARILLO">SIN QUESO AMARILLO</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN MAYONESA">SIN MAYONESA</label>
-        </div>
-      </div>
+<div class="menu-main">
 
-      <!-- Sandwinch Club -->
-      <div class="item-panel">
-        <div class="item-top">
-          <span class="item-nombre">Sandwinch Club 🥪</span>
-          <input type="number" min="1" max="9" value="1" class="item-cantidad" id="cant_sandwinch">
-          <button type="button" class="agregar-btn" onclick="agregarProducto('Sandwinch Club', 'sandwinch')">Agregar</button>
-        </div>
-        <div class="perso-block" id="perso_sandwinch">
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="CON TODO!!!">CON TODO!!!</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CEBOLLA">SIN CEBOLLA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN JITOMATE">SIN JITOMATE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN LECHUGA">SIN LECHUGA</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PICANTE">SIN PICANTE</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN PEPINILLOS">SIN PEPINILLOS</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN CATSUP">SIN CATSUP</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN QUESO AMARILLO">SIN QUESO AMARILLO</label>
-          <label class="perso-label"><input type="checkbox" class="perso-checkbox" value="SIN MAYONESA">SIN MAYONESA</label>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Aquí van las demás secciones (Burritos, Tortas, Volcanes, Antojo Street, Extras, Bebidas) con mismo formato... -->
+  <!-- SECCIONES DEL MENÚ EN ACORDEÓN -->
+  <div id="menu-zonas"></div>
 
-    <!-- CARRITO -->
-    <div class="carrito" id="carrito">
-      <div class="carrito-title">🛒 Tu pedido Winilux</div>
-      <div id="carrito-items"></div>
-      <textarea class="notas" id="notas" placeholder="Notas adicionales (opcional)..."></textarea>
-      <button type="button" class="whatsapp-btn" onclick="enviarWhatsapp()">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="25" style="vertical-align:middle;">Enviar pedido por WhatsApp
-      </button>
-    </div>
-    <div class="footer-quesito">
-      <div class="footer-text">
-        Esto es lo que yo también me comería. Esto es Winilux.
-      </div>
-    </div>
+</div>
+
+<div class="carrito-fixed" id="carrito">
+  <div class="carrito-title">🛒 Tu pedido Winilux</div>
+  <div id="carrito-items"></div>
+  <textarea class="notas" id="notas" placeholder="Notas adicionales (opcional)..."></textarea>
+  <button type="button" class="whatsapp-btn" onclick="enviarWhatsapp()">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="25" style="vertical-align:middle;">Enviar pedido por WhatsApp
+  </button>
+</div>
+<div class="footer-quesito">
+  <div class="footer-text">
+    Esto es lo que yo también me comería. Esto es Winilux.
   </div>
 </div>
+
+<!-- MODAL de personalización -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal" id="modal">
+    <div class="modal-titulo" id="modal-titulo"></div>
+    <div class="modal-cantidad">
+      <button type="button" class="modal-btn" id="modal-menos">-</button>
+      <input type="text" class="modal-input" id="modal-cant" value="1" readonly>
+      <button type="button" class="modal-btn" id="modal-mas">+</button>
+    </div>
+    <div class="modal-perso" id="modal-perso"></div>
+    <button type="button" class="modal-agregar" id="modal-agregar">Agregar al carrito</button>
+  </div>
+</div>
+
+<!-- POPUP AGREGADO -->
+<div class="agregado-popup" id="popup-agregado">¡Producto agregado al carrito!</div>
+
 <script>
+  // ====== ZONAS Y PRODUCTOS DEL MENÚ =========
+  const zonas = [
+    {
+      nombre: "BURGER ZONA",
+      id: "burger",
+      productos: [
+        {nombre:"Hamburguesa Clásica 🧀", id:"clasica"},
+        {nombre:"Hamburguesa BBQ 🍖", id:"bbq"},
+        {nombre:"Hamburguesa Hawaiana 🍍", id:"hawaiana"},
+        {nombre:"Hamburguesa Ranchera 🌶️", id:"ranchera"},
+        {nombre:"Hamburguesa Doble 🖐🏻", id:"doble"},
+        {nombre:"Hamburguesa Monster 👹", id:"monster"}
+      ],
+      perso: [
+        "CON TODO!!!",
+        "SIN CEBOLLA",
+        "SIN JITOMATE",
+        "SIN LECHUGA",
+        "SIN PICANTE",
+        "SIN PEPINILLOS",
+        "SIN CATSUP",
+        "SIN QUESO AMARILLO",
+        "SIN MAYONESA"
+      ]
+    },
+    {
+      nombre: "ANTOJO STREET",
+      id: "antojost",
+      productos: [
+        {nombre:"Torta con Queso 🌭", id:"torta"},
+        {nombre:"Gringa con Queso 🌙", id:"gringa"},
+        {nombre:"Orden de 3 Hotdogs 🌭", id:"hotdogs"},
+        {nombre:"Orden de 3 Volcanes 🌋", id:"volcanes"},
+        {nombre:"Sandwinch Club 🥪", id:"sandwinch"}
+      ],
+      perso: {
+        torta: [
+          "CON TODO!!!",
+          "SIN CEBOLLA",
+          "SIN QUESO OAXACA",
+          "SIN MAYONESA",
+          "SIN CILANTRO",
+          "SIN AGUACATE"
+        ],
+        gringa: [
+          "CON TODO!!!",
+          "SIN CEBOLLA",
+          "SIN QUESO OAXACA",
+          "SIN MAYONESA",
+          "SIN CILANTRO",
+          "SIN AGUACATE"
+        ],
+        hotdogs: [
+          "CON TODO!!!",
+          "SIN CEBOLLA",
+          "SIN JITOMATE",
+          "SIN LECHUGA",
+          "SIN PICANTE",
+          "SIN PEPINILLOS",
+          "SIN CATSUP",
+          "SIN QUESO AMARILLO",
+          "SIN MAYONESA"
+        ],
+        volcanes: [
+          "CON TODO!!!",
+          "SIN CEBOLLA",
+          "SIN QUESO OAXACA",
+          "SIN CILANTRO",
+          "SIN AGUACATE"
+        ],
+        sandwinch: [
+          "CON TODO!!!",
+          "SIN CEBOLLA",
+          "SIN JITOMATE",
+          "SIN LECHUGA",
+          "SIN PICANTE",
+          "SIN PEPINILLOS",
+          "SIN CATSUP",
+          "SIN QUESO AMARILLO",
+          "SIN MAYONESA"
+        ]
+      }
+    },
+    {
+      nombre: "BURRITOMANÍA",
+      id: "burritos",
+      productos: [
+        {nombre:"Burrito de Bistec 🥩", id:"bistec"},
+        {nombre:"Burrito de Arrachera 🍖", id:"arrachera"},
+        {nombre:"Burrito Campechano 🐷", id:"campechano"},
+        {nombre:"Burrito de Pastor 🌮", id:"pastor"}
+      ],
+      perso: [
+        "CON TODO!!!",
+        "SIN QUESO OAXACA",
+        "SIN AGUACATE",
+        "SIN FRIJOLES"
+      ]
+    },
+    {
+      nombre: "EXTRAS",
+      id: "extras",
+      productos: [
+        {nombre:"Orden de Papas 😊", id:"papas"},
+        {nombre:"Orden de Salchipulpos 🐙", id:"salchipulpos"},
+        {nombre:"Orden de Salchipapas 🍟", id:"salchipapas"}
+      ],
+      perso: [
+        "CON TODO!!!",
+        "SIN CATSUP",
+        "SIN QUESO",
+        "SIN PICANTE"
+      ]
+    },
+    {
+      nombre: "BEBIDAS",
+      id: "bebidas",
+      productos: [
+        {nombre:"Refrescos", id:"refrescos"},
+        {nombre:"Agua de sabor 1 lt", id:"agua"},
+        {nombre:"Cervezas", id:"cervezas"}
+      ],
+      perso: [] // No hay personalización para bebidas
+    }
+  ];
+
+  // =========== RENDER MENU ===============
+  function renderMenu() {
+    let html = "";
+    zonas.forEach((zona, iz) => {
+      html += `
+      <div class="seccion-acordeon">
+        <button class="acordeon-btn${iz === 0 ? " open":""}" onclick="toggleZona(${iz}, this)">
+          <span>${zona.nombre}</span>
+          <span class="quesito-ico"></span>
+          <span class="arrow">&#9654;</span>
+        </button>
+        <div class="productos-seccion${iz === 0 ? " open":""}" id="zona${iz}">
+      `;
+      zona.productos.forEach(prod => {
+        html += `
+          <div class="tarjeta-producto" onclick="abrirModal('${zona.id}','${prod.id}','${prod.nombre}')">
+            <div class="prod-nombre">${prod.nombre}</div>
+            <div class="prod-ico"></div>
+            <button class="agregar-btn" onclick="event.stopPropagation(); abrirModal('${zona.id}','${prod.id}','${prod.nombre}')">Agregar</button>
+          </div>
+        `;
+      });
+      html += `</div></div>`;
+    });
+    document.getElementById("menu-zonas").innerHTML = html;
+  }
+  renderMenu();
+
+  // ============ ACORDEÓN DE ZONAS ================
+  function toggleZona(idx, btn) {
+    let allBtns = document.querySelectorAll('.acordeon-btn');
+    let allZonas = document.querySelectorAll('.productos-seccion');
+    allBtns.forEach((b,i) => {
+      if(i===idx) {
+        b.classList.toggle('open');
+        allZonas[i].classList.toggle('open');
+      } else {
+        b.classList.remove('open');
+        allZonas[i].classList.remove('open');
+      }
+    });
+  }
+
+  // ======= MODAL DE PERSONALIZACIÓN ============
+  let modalZona = null, modalProd = null, modalProdName = null;
+  function abrirModal(zonaId, prodId, prodName) {
+    modalZona = zonaId;
+    modalProd = prodId;
+    modalProdName = prodName;
+    document.getElementById("modal-titulo").textContent = prodName;
+    document.getElementById("modal-cant").value = 1;
+
+    // Renderizar personalizaciones
+    let zona = zonas.find(z => z.id===zonaId);
+    let persos = [];
+    if(zona.perso && Array.isArray(zona.perso)) persos = zona.perso;
+    if(zona.perso && typeof zona.perso==="object" && zona.perso[prodId]) persos = zona.perso[prodId];
+    let html = "";
+    persos.forEach((p,i)=>{
+      html += `<label><input type="checkbox" class="modal-pcheck" data-con="${p==='CON TODO!!!'}" value="${p}"> ${p}</label>`;
+    });
+    document.getElementById("modal-perso").innerHTML = html;
+    // Listeners para la regla "con todo"
+    document.querySelectorAll('.modal-pcheck').forEach(cb=>{
+      cb.onchange = function(){
+        if(this.dataset.con === "true" && this.checked) {
+          // Si se marcó "CON TODO!!!", desmarcar otros
+          document.querySelectorAll('.modal-pcheck').forEach(ocb=>{
+            if(ocb !== this) ocb.checked = false;
+          });
+        } else if(this.dataset.con !== "true" && this.checked) {
+          // Si se marcó otro, desmarcar "CON TODO!!!"
+          document.querySelectorAll('.modal-pcheck').forEach(ocb=>{
+            if(ocb.dataset.con === "true") ocb.checked = false;
+          });
+        }
+      };
+    });
+    document.getElementById("modal-bg").classList.add("open");
+    document.getElementById("modal").classList.add("open");
+  }
+  // Cerrar modal clic fuera
+  document.getElementById("modal-bg").onclick = function(e){
+    if(e.target === this) {
+      this.classList.remove("open");
+      document.getElementById("modal").classList.remove("open");
+    }
+  };
+
+  // Cantidad +/-
+  document.getElementById("modal-menos").onclick = function(){
+    let v = parseInt(document.getElementById("modal-cant").value)||1;
+    if(v>1) document.getElementById("modal-cant").value = v-1;
+  };
+  document.getElementById("modal-mas").onclick = function(){
+    let v = parseInt(document.getElementById("modal-cant").value)||1;
+    if(v<9) document.getElementById("modal-cant").value = v+1;
+  };
+
+  // ========== CARRITO =============
   let carrito = [];
 
-  function agregarProducto(nombre, idbase) {
-    // Leer cantidad
-    let cant = parseInt(document.getElementById('cant_' + idbase).value) || 1;
-    if(cant < 1) cant = 1;
-    if(cant > 9) cant = 9;
-    // Leer personalizaciones
-    let perso = [];
-    document.querySelectorAll('#perso_' + idbase + ' .perso-checkbox:checked').forEach(cb => {
-      perso.push(cb.value);
+  document.getElementById("modal-agregar").onclick = function(){
+    let cantidad = parseInt(document.getElementById("modal-cant").value)||1;
+    let persos = [];
+    document.querySelectorAll('.modal-pcheck:checked').forEach(cb => {
+      persos.push(cb.value);
     });
-    // Agregar al carrito
-    for(let i=0; i<cant; i++) {
-      carrito.push({nombre, perso: [...perso]});
+    for(let i=0;i<cantidad;i++){
+      carrito.push({nombre: modalProdName, perso:[...persos]});
     }
+    document.getElementById("modal-bg").classList.remove("open");
+    document.getElementById("modal").classList.remove("open");
     renderCarrito();
-    // Quitar checks
-    document.querySelectorAll('#perso_' + idbase + ' .perso-checkbox').forEach(cb => cb.checked = false);
-    document.getElementById('cant_' + idbase).value = 1;
-  }
+    popupAgregado();
+    flashCarrito();
+  };
 
   function eliminarDelCarrito(idx) {
     carrito.splice(idx,1);
@@ -439,6 +650,19 @@
   }
   renderCarrito();
 
+  // ========== ANIMACIÓN AL AGREGAR =============
+  function popupAgregado() {
+    let pop = document.getElementById("popup-agregado");
+    pop.classList.add("active");
+    setTimeout(()=>pop.classList.remove("active"), 1000);
+  }
+  function flashCarrito() {
+    let cart = document.getElementById("carrito");
+    cart.classList.add("carrito-flash");
+    setTimeout(()=>cart.classList.remove("carrito-flash"), 800);
+  }
+
+  // ========== WHATSAPP ===========
   function enviarWhatsapp() {
     if(carrito.length === 0) {
       alert("Agrega al menos un producto a tu pedido 😅");
@@ -452,7 +676,7 @@
     });
     let notas = document.getElementById('notas').value.trim();
     if(notas) msg += "%0A*Notas:* " + notas.replace(/\n/g, '%0A');
-    let tel = "525560442451"; // ← Cambia este número por tu WhatsApp con 52 y lada
+    let tel = "525560442451"; // ← Ya tu WhatsApp con 52
     let url = "https://wa.me/"+tel+"?text="+msg;
     window.open(url, "_blank");
   }
